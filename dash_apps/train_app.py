@@ -227,7 +227,7 @@ def create_train_dash(server):
             fig.add_trace(go.Scatter(x= X_test.index, y=y_pred, mode='lines', name='Predictions'))
 
             fig.update_layout(
-                title="XGBoost Predictions vs Actual",
+                title="LSTM Predictions vs Actual",
                 xaxis_title="Date",
                 yaxis_title="Close Price",
                 xaxis_rangeslider_visible=True,
