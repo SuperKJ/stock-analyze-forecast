@@ -25,4 +25,4 @@ COPY . .
 EXPOSE 5000
 
 # 8. Run the Dash app by default
-CMD ["python", "application.py"]
+CMD ["gunicorn", "application:app", "--bind", "0.0.0.0:5000"]
