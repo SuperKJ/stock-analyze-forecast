@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: stock-predictor-app
+    env: docker
+    plan: free
+    autoDeploy: true
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: 1
+    buildCommand: ""
+    startCommand: ""
+    ports:
+      - 5000

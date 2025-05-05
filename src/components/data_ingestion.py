@@ -9,7 +9,7 @@ import sys
 
 @dataclass
 class DataIngestionConfig:
-    nse_data_path = os.path.join(os.getcwd(),'data',r'NIFTY50_23April2025\MW-NIFTY-50-23-Apr-2025.csv')
+    nse_data_path = os.path.join(os.getcwd(),'data',r'NIFTY50_23April2025/MW-NIFTY-50-23-Apr-2025.csv')
 
 
 class DataIngestor:
