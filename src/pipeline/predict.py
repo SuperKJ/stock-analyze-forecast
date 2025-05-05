@@ -24,8 +24,8 @@ class PredictionPipeline:
         data = self.data_prepare.calculate_mathematical_term(data)
         data = self.data_prepare.prepare_data_for_model(symbol)
 
-        print('Last Close Price: ', data['Close'].iloc[-1])
-        print('Last Date: ', data.index[-1])
+        #('Last Close Price: ', data['Close'].iloc[-1])
+        #('Last Date: ', data.index[-1])
 
         predictions = pd.DataFrame(columns=['sma_10', 'MACD', 'MACD_Diff', 'RSI', 'Close_prev', 'dayofweek', 'day', 'month', 'year', 'Close'])
 
@@ -54,7 +54,7 @@ class PredictionPipeline:
                 model = self.utils.load_object(self.model_config.xgb_model_trained_path)
             elif model == "ElasticNet":
                 model = self.utils.load_object(self.model_config.elasticnet_model_trained_path)
-                print("ElasticNet model loaded")
+                #("ElasticNet model loaded")
 
             y_pred = model.predict(df_pred)
 
@@ -64,7 +64,7 @@ class PredictionPipeline:
 
             predictions = pd.concat([predictions, df_pred])
 
-        print('Predicted Close Price: ', predictions)
+        #('Predicted Close Price: ', predictions)
 
         return predictions
     
@@ -72,12 +72,12 @@ class PredictionPipeline:
         # Prepare the data
         data = self.data_prepare.prepare_data_for_model(symbol)
 
-        print("Prediction data columns:", data.columns)
-        print("Data shape:", data.shape)
+        #("Prediction data columns:", data.columns)
+        #("Data shape:", data.shape)
 
         # Load the trained LSTM model
         model = self.utils.load_object(self.model_config.lstm_model_trained_path)
-        print("LSTM model loaded")
+        #("LSTM model loaded")
 
         # Drop target column to get features
         X = data.drop(['Close'], axis=1)

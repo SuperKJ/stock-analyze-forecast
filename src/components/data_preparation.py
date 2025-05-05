@@ -75,12 +75,12 @@ class DataPrepare:
 
             data.drop([ 'sma_50', 'sma_200', 'Dividends', 'Stock Splits','Open', 'High', 'Low', 'Signal_Line', 'Volume'], axis=1, errors='ignore',inplace=True)
 
-            print(data.columns)
+            #(data.columns)
 
             data.reset_index( inplace=True)
 
             data['Date'] = pd.to_datetime(data['Date'], errors='coerce')
-            print(data.columns)
+            #(data.columns)
             
             data['Close_prev'] = data['Close'].shift(1)
             
@@ -93,7 +93,7 @@ class DataPrepare:
             
             data.set_index('Date', inplace=True)
 
-            print("data prepared for ML models",data.columns)
+            #("data prepared for ML models",data.columns)
             
             logging.info("data for machine learning models is prepared")
             return data

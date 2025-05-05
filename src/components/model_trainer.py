@@ -65,7 +65,7 @@ class ModelTrainer:
             rmse = np.sqrt(mean_squared_error(y_test, y_pred))
 
             logging.info("r2: ", r2, "mae ", mae, "rmse: ", rmse)
-            print(r2, mae, rmse)
+            #(r2, mae, rmse)
 
             self.utils.save_object(self.model_trainer_config.lr_model_trained_path,model_lr)
             logging.info("Model saved successfully (LR) -> ",self.model_trainer_config.lr_model_trained_path)
@@ -101,14 +101,14 @@ class ModelTrainer:
 
             grid_search.fit(X_train, y_train)
 
-            print("Best Parameters:", grid_search.best_params_)
+            #("Best Parameters:", grid_search.best_params_)
             best_model = grid_search.best_estimator_
 
             y_pred_elastic = best_model.predict(X_test)
             rmse = np.sqrt(mean_squared_error(y_test, y_pred_elastic))
             r2 = r2_score(y_test, y_pred_elastic)
             mae = mean_absolute_error(y_test, y_pred_elastic) 
-            print("ElasticNet RMSE:", rmse)
+            #("ElasticNet RMSE:", rmse)
 
             self.utils.save_object(self.model_trainer_config.elasticnet_model_trained_path,best_model)
             logging.info("Model saved successfully (ElasticNet) -> ",self.model_trainer_config.elasticnet_model_trained_path)
@@ -147,9 +147,9 @@ class ModelTrainer:
             )
 
             grid_xg_model.fit(X_train, y_train)
-            print("Best_Parmas: ", grid_xg_model.best_params_)
-            print("Best_Score: ", grid_xg_model.best_score_)
-            print("Best Estimator", grid_xg_model.best_estimator_)
+            #("Best_Parmas: ", grid_xg_model.best_params_)
+            #("Best_Score: ", grid_xg_model.best_score_)
+            #("Best Estimator", grid_xg_model.best_estimator_)
 
             xgb_best = grid_xg_model.best_estimator_
             ypred_xgb= xgb_best.predict(X_test)
@@ -257,7 +257,7 @@ class ModelTrainer:
             mse = mean_squared_error(y_lstm, y_pred_lstm)
             rmse = np.sqrt(mse)
 
-            print(f"RMSE: {rmse}, MAE: {mae}, R2: {r2}")
+            #(f"RMSE: {rmse}, MAE: {mae}, R2: {r2}")
 
             # Save trained model
             self.utils.save_object(self.model_trainer_config.lstm_model_trained_path, model_lstm)

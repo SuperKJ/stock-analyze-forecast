@@ -115,12 +115,12 @@ def create_train_dash(server):
     )
     def train_model(n_clicks,symbol,model,n_days):
 
-        print(model)
-        print(symbol)
+        #(model)
+        #(symbol)
 
         if model == "Linear Regression":
-            print(model)
-            print(symbol)
+            #(model)
+            #(symbol)
             X_test, y_pred, y_test, rmse, mae, r2 = train_pipeline.lr_training_pipeline(symbol)
             forecast_data = predict_pipeline. make_prediction_ml_model(model,symbol,n_days)
 
@@ -139,22 +139,22 @@ def create_train_dash(server):
                 template='plotly_dark',
                 paper_bgcolor='rgba(0,0,0,0)')
             
-            print("Model Training COmplemeted")
-            print("Forecasting COmplemeted")
+            #("Model Training COmplemeted")
+            #("Forecasting COmplemeted")
 
             forecast_data = forecast_data.reset_index().loc[:, ['index', 'Close']].rename(columns={'index': 'Date'})
             forecast_data['Date'] = pd.to_datetime(forecast_data['Date']).dt.date
-            print(forecast_data)
+            #(forecast_data)
             
             return html.Div([du.plot_train_pred_forecast(rmse, mae,r2,fig, forecast_data, symbol)])
 
         
         elif model == "XG Boost":
-            print(model)
-            print(symbol)
+            #(model)
+            #(symbol)
             X_test, y_pred, y_test, rmse, mae, r2 = train_pipeline.xgb_training_pipeline(symbol)
 
-            print("Model Training COmplemeted")
+            #("Model Training COmplemeted")
             forecast_data = predict_pipeline. make_prediction_ml_model(model,symbol,int(n_days))
 
             fig = go.Figure()
@@ -172,22 +172,23 @@ def create_train_dash(server):
                 template='plotly_dark',
                 paper_bgcolor='rgba(0,0,0,0)')
             
-            print(forecast_data)
+            #(forecast_data)
             
-            print('forecast_data.shape', forecast_data.shape)
-            print('forecast_Data.colums', forecast_data.columns)            
+            #('forecast_data.shape', forecast_data.shape)
+            #('forecast_Data.colums', forecast_data.columns)            
             forecast_data = forecast_data.reset_index().loc[:, ['index', 'Close']].rename(columns={'index': 'Date'})
             forecast_data['Date'] = pd.to_datetime(forecast_data['Date']).dt.date
-            print(forecast_data)
+            #(forecast_data)
             
             return html.Div([du.plot_train_pred_forecast(rmse, mae,r2,fig, forecast_data, symbol)])
         
         elif model == "ElasticNet":
+            #(model)
+            #(symbol)
             print(model)
-            print(symbol)
-            X_test, y_pred, y_test, rmse, mae, r2 = train_pipeline.lr_training_pipeline(symbol)
+            X_test, y_pred, y_test, rmse, mae, r2 = train_pipeline.elastic_training_pipeline(symbol)
 
-            print("Model Training COmplemeted")
+            #("Model Training COmplemeted")
             forecast_data = predict_pipeline. make_prediction_ml_model(model,symbol,int(n_days))
 
             fig = go.Figure()
@@ -205,20 +206,20 @@ def create_train_dash(server):
                 template='plotly_dark',
                 paper_bgcolor='rgba(0,0,0,0)')
             
-            print("ElasticNet Model Training COmplemeted")
+            #("ElasticNet Model Training COmplemeted")
             
             forecast_data = forecast_data.reset_index().loc[:, ['index', 'Close']].rename(columns={'index': 'Date'})
             forecast_data['Date'] = pd.to_datetime(forecast_data['Date']).dt.date
-            print(forecast_data)
+            #(forecast_data)
             
             return html.Div([du.plot_train_pred_forecast(rmse, mae,r2,fig, forecast_data, symbol)])
         
         elif model == "LSTM":
-            print(model)
-            print(symbol)
+            #(model)
+            #(symbol)
             X_test, y_pred, y_test, rmse, mae, r2 = train_pipeline.lstm_training_pipeline(symbol)
 
-            print("Model Training COmplemeted")
+            #("Model Training COmplemeted")
             forecast_data = predict_pipeline.make_prediction_lstm_model(symbol,int(n_days))
 
             fig = go.Figure()
@@ -236,11 +237,11 @@ def create_train_dash(server):
                 template='plotly_dark',
                 paper_bgcolor='rgba(0,0,0,0)')
             
-            print("ElasticNet Model Training COmplemeted")
+            #("ElasticNet Model Training COmplemeted")
             
             # forecast_data = forecast_data.reset_index().loc[:, ['index', 'Close']].rename(columns={'index': 'Date'})
             # forecast_data['Date'] = pd.to_datetime(forecast_data['Date']).dt.date
-            print(forecast_data)
+            #(forecast_data)
             
             return html.Div([du.plot_train_pred_forecast(rmse, mae,r2,fig, forecast_data, symbol)])
 
