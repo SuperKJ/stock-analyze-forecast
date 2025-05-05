@@ -3,6 +3,7 @@ services:
     name: stock-predictor-app
     env: docker
     plan: free
+    startCommand: gunicorn src.main:app
     autoDeploy: true
     dockerfilePath: ./Dockerfile
     envVars:
