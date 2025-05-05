@@ -2,6 +2,13 @@
 
 A full-stack data science project for analyzing and forecasting stock prices using historical data and technical indicators. Built with Python, Dash, machine learning and Deep Learning.
 
+
+### Demo Video 
+DropDown Menus are not visible in the video due to the screen recorder.
+
+https://github.com/user-attachments/assets/cc0f7b4f-6150-4310-af8c-7e142b157a1c
+
+
 ---
 
 ## Features
@@ -33,6 +40,7 @@ A full-stack data science project for analyzing and forecasting stock prices usi
 - run - `python application.py`
 
 ---
+
 
 Built by Kanishk Joshi.
 
