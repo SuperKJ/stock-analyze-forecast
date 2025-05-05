@@ -33,20 +33,8 @@ def home_page():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False, host="0.0.0.0", port=5000)
 
-    # data_ingestor = DataIngestor()
-    # symbols = data_ingestor.get_stock_symbols()
-
-    # symbol = symbols[1]
-
-    # data_for_plotting = data_ingestor.get_stock_data(symbol)
-
-    # data_prepare = DataPrepare()
-    # data_for_training = data_prepare.prepare_data_for_model(symbol)
-
-    # model_trainer = ModelTrainer()
-    # y_pred, y_test, rmse = model_trainer.train_lstm(data_for_training)
     
 
 
